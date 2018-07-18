@@ -97,6 +97,15 @@ class FetchTransactionResponse extends AbstractResponse implements RedirectRespo
     }
 
     /**
+     * @return boolean
+     */
+    public function isResolved()
+    {
+        $status = $this->getStatus();
+        return $status === 'RESOLVED';
+    }
+    
+    /**
      * @return mixed
      */
     public function getTransactionReference()
