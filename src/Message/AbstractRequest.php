@@ -51,7 +51,28 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         return $this->setParameter('code', $value);
     }
+    
+    /**
+     * Get the request description.
+     *
+     * @return string
+     */
+    public function getPricingType()
+    {
+        return $this->getParameter('pricing_type');
+    }
 
+    /**
+     * Sets the request description.
+     *
+     * @param string $value
+     * @return $this
+     */
+    public function setPricingType($value)
+    {
+        return $this->setParameter('pricing_type', $value);
+    }
+    
     public function sendRequest($method, $action, $data = null)
     {
         $url = $this->getEndpoint() . $action;
