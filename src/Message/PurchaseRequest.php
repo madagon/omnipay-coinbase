@@ -41,18 +41,20 @@ class PurchaseRequest extends AbstractRequest
 
     public function getData()
     {
-        $this->validate('name', 'description', 'amount', 'currency', 'redirect_url', 'metadata');
+        $this->validate('name', 'description', 'amount', 'currency', 'redirect_url', 'metadata', 'pricing_type');
         $data = [];
         $data['amount'] = $this->getAmount();
         $data['name'] = $this->getName();
         $data['description'] = $this->getDescription();
-        $data['pricing_type'] = 'fixed_price';
+        $data['pricing_type'] = $this->getParameter('pricing_type');
         $data['redirect_url'] = $this->getRedirectUrl();
         $data['metadata'] = $this->getMetaData();
-        $data['local_price'] = [
-            'amount' => $this->getAmount(),
-            'currency' => $this->getCurrency(),
-        ];
+        if ($this->getParameter('pricing_type') == 'fixed_price') {
+            $data['local_price'] = [
+                'amount' => $this->getAmount(),
+                'currency' => $this->getCurrency(),
+            ];
+        }
         return $data;
     }
 
