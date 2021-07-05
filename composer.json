@@ -1,5 +1,5 @@
 {
-  "name": "zek/omnipay-coinbase",
+  "name": "madagon/omnipay-coinbase",
   "type": "library",
   "description": "Coinbase driver for the Omnipay payment processing library",
   "keywords": [
@@ -10,7 +10,7 @@
     "pay",
     "payment"
   ],
-  "homepage": "https://github.com/zek/omnipay-coinbase",
+  "homepage": "https://github.com/madagon/omnipay-coinbase",
   "license": "MIT",
   "authors": [
     {
